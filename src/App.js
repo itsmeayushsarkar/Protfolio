@@ -1,16 +1,25 @@
-import React from 'react';
-import { Router } from 'react-router-dom';
-
-import GlobalStyles from './assets/styles/global';
-import Routes from './routes';
-import history from './routes/history';
+import React from "react";
+import { ThemeProvider } from "./context/ThemeContext";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
+import About from "./components/About";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
-    <Router history={history}>
-      <GlobalStyles />
-
-      <Routes />
-    </Router>
+    <ThemeProvider>
+      <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+        <Navbar />
+        <Home />
+        <About />
+        <Skills />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
